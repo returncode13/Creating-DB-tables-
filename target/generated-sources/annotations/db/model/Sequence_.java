@@ -9,7 +9,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Sequence.class)
 public abstract class Sequence_ {
 
-	public static volatile SetAttribute<Sequence, Headers> headers;
 	public static volatile SingularAttribute<Sequence, Long> sequenceno;
 	public static volatile SingularAttribute<Sequence, String> realLineName;
 	public static volatile SetAttribute<Sequence, Subsurface> subsurfaces;

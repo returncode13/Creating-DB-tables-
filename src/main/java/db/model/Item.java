@@ -18,7 +18,7 @@ import javax.persistence.Table;
  *
  * @author sharath nair <sharath.nair@polarcus.com>
  */
-@Entity
+//@Entity
 @Table(name="Item",schema = "obpmanager")
 public class Item{
 

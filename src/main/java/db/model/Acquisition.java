@@ -22,7 +22,7 @@ import javax.persistence.UniqueConstraint;
  */
 
 @Entity
-@Table(name="acquisitionTest",schema = "public")
+@Table(name="acquisitiontest",schema = "public")
 public class Acquisition implements Serializable{
 
     @Id

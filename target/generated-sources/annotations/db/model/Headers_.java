@@ -36,7 +36,6 @@ public abstract class Headers_ {
 	public static volatile SingularAttribute<Headers, Long> dugChannelInc;
 	public static volatile SingularAttribute<Headers, Volume> volume;
 	public static volatile SingularAttribute<Headers, String> timeStamp;
-	public static volatile SingularAttribute<Headers, Sequence> sequence;
 	public static volatile SingularAttribute<Headers, Long> offsetMax;
 	public static volatile SingularAttribute<Headers, Boolean> deleted;
 	public static volatile SingularAttribute<Headers, String> summaryTime;

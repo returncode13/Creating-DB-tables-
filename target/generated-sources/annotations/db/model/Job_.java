@@ -10,12 +10,17 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class Job_ {
 
 	public static volatile SingularAttribute<Job, Workspace> workspace;
+	public static volatile SetAttribute<Job, Link> linksWithJobAsChild;
 	public static volatile SingularAttribute<Job, NodeType> nodetype;
+	public static volatile SetAttribute<Job, QcMatrix> qcmatrices;
 	public static volatile SingularAttribute<Job, Boolean> alert;
 	public static volatile SingularAttribute<Job, String> nameJobStep;
 	public static volatile SetAttribute<Job, JobVolumeMap> jobVolumeMap;
 	public static volatile SingularAttribute<Job, String> insightVersions;
+	public static volatile SetAttribute<Job, Link> linksWithJobAsParent;
 	public static volatile SingularAttribute<Job, Long> id;
+	public static volatile SetAttribute<Job, Ancestor> ancestors;
+	public static volatile SetAttribute<Job, Descendant> descendants;
 
 }
 

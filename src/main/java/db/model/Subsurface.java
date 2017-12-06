@@ -23,7 +23,7 @@ import javax.persistence.Table;
  * @author sharath nair <sharath.nair@polarcus.com>
  */
 @Entity
-@Table(name="subsurfaceTest",schema="public")
+@Table(name="subsurfacetest",schema="public")
 
 public class Subsurface implements Serializable {
     @Id
@@ -42,7 +42,25 @@ public class Subsurface implements Serializable {
     
     @OneToMany(mappedBy = "subsurface")
     private Set<Headers> headers;
+    
+    @OneToMany(mappedBy = "subsurface")
+    private Set<QcTable> qctables;
+    
+    @OneToMany(mappedBy = "subsurface")
+    private Set<Doubt> doubts;
+    
+    
+    public Subsurface() {
+    }
 
+    public Set<Doubt> getDoubts() {
+        return doubts;
+    }
+
+    public void setDoubts(Set<Doubt> doubts) {
+        this.doubts = doubts;
+    }
+    
     public Set<Acquisition> getAcquisition() {
         return acquisition;
     }
@@ -81,7 +99,14 @@ public class Subsurface implements Serializable {
         return id;
     }
 
-    public Subsurface() {
+   
+
+    public Set<QcTable> getQctables() {
+        return qctables;
+    }
+
+    public void setQctables(Set<QcTable> qctables) {
+        this.qctables = qctables;
     }
     
     

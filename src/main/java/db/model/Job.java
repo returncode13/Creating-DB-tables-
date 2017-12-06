@@ -65,7 +65,23 @@ public class Job implements Serializable{
     @OneToMany(mappedBy = "job")                              //create a member named "job" in the JobVolumeMap class definition
     private Set<JobVolumeMap> jobVolumeMap;
     
-   
+    @OneToMany(mappedBy = "job")
+    private Set<Ancestor> ancestors;
+    
+    @OneToMany(mappedBy ="job")
+    private Set<Descendant> descendants;
+    
+    @OneToMany(mappedBy = "job")
+    private Set<QcMatrix> qcmatrices;
+    
+    
+    @OneToMany(mappedBy = "parent")
+    private Set<Link> linksWithJobAsParent;                 //links where this job is parent...So all the children of this parent job are on the opposite end of the links
+    
+    @OneToMany(mappedBy = "child")
+    private Set<Link> linksWithJobAsChild;                  //links where this job is child. So all the parents of this job are on the opposite end of the link
+    
+     
     /*public Job(String nameJobStep, Boolean alert,String insightVersion,Long type) {
     this.nameJobStep = nameJobStep;
     this.alert = alert;
@@ -74,14 +90,14 @@ public class Job implements Serializable{
     }
     */
 
-    
+    /*
     public Job(String nameJobStep, Boolean alert,String insightVersion,NodeType type) {
-        this.nameJobStep = nameJobStep;
-        this.alert = alert;
-        this.insightVersions=insightVersion;
-        this.nodetype=type;
+    this.nameJobStep = nameJobStep;
+    this.alert = alert;
+    this.insightVersions=insightVersion;
+    this.nodetype=type;
     }
-    
+    */
     public Job() {
     }
     
@@ -184,9 +200,53 @@ public class Job implements Serializable{
     public void setNodetype(NodeType nodetype) {
         this.nodetype = nodetype;
     }
-    
-    
 
+    public Set<Ancestor> getAncestors() {
+        return ancestors;
+    }
+
+    public void setAncestors(Set<Ancestor> ancestors) {
+        this.ancestors = ancestors;
+    }
+
+    public Set<Descendant> getDescendants() {
+        return descendants;
+    }
+
+    public void setDescendants(Set<Descendant> descendants) {
+        this.descendants = descendants;
+    }
+
+    public Set<QcMatrix> getQcmatrices() {
+        return qcmatrices;
+    }
+
+    public void setQcmatrices(Set<QcMatrix> qcmatrices) {
+        this.qcmatrices = qcmatrices;
+    }
+
+    public Set<Link> getLinksWithJobAsParent() {
+        return linksWithJobAsParent;
+    }
+
+    public void setLinksWithJobAsParent(Set<Link> linksWithJobAsParent) {
+        this.linksWithJobAsParent = linksWithJobAsParent;
+    }
+
+    public Set<Link> getLinksWithJobAsChild() {
+        return linksWithJobAsChild;
+    }
+
+    public void setLinksWithJobAsChild(Set<Link> linksWithJobAsChild) {
+        this.linksWithJobAsChild = linksWithJobAsChild;
+    }
+    
+    
+   
+    
+    
+    
+    
     
 
     

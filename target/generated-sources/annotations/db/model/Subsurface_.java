@@ -9,8 +9,10 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Subsurface.class)
 public abstract class Subsurface_ {
 
+	public static volatile SetAttribute<Subsurface, Doubt> doubts;
 	public static volatile SingularAttribute<Subsurface, Sequence> sequence;
 	public static volatile SetAttribute<Subsurface, Headers> headers;
+	public static volatile SetAttribute<Subsurface, QcTable> qctables;
 	public static volatile SingularAttribute<Subsurface, Long> id;
 	public static volatile SetAttribute<Subsurface, Acquisition> acquisition;
 	public static volatile SingularAttribute<Subsurface, String> subsurface;

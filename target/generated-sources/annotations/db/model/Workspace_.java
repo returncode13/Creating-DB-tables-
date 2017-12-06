@@ -12,6 +12,7 @@ public abstract class Workspace_ {
 	public static volatile SetAttribute<Workspace, Job> jobs;
 	public static volatile SingularAttribute<Workspace, String> name;
 	public static volatile SingularAttribute<Workspace, Long> id;
+	public static volatile SingularAttribute<Workspace, User> user;
 
 }
 

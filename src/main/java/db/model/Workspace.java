@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -39,6 +41,9 @@ public class Workspace implements Serializable{
     @OneToMany(mappedBy="workspace")
     private Set<Job> jobs;
   
+    @ManyToOne
+    @JoinColumn(name="user_fk")
+    private User user;
    
    /*@OneToMany(mappedBy = "sessions",cascade = CascadeType.ALL,orphanRemoval = true)
    private Set<QcType> qcTypes;*/
@@ -50,10 +55,10 @@ public class Workspace implements Serializable{
    private Set<ObpManagerLog> obpmanagerLogs;
    */
    
-    public Workspace(String nameSessions, String hashSessions) {
-        this.name = nameSessions;
-        /*this.hashSessions = hashSessions;*/
-    }
+    /* public Workspace(String nameSessions, String hashSessions) {
+    this.name = nameSessions;
+    /*this.hashSessions = hashSessions;
+    }*/
 
     public Workspace() {
     }
@@ -108,6 +113,15 @@ public class Workspace implements Serializable{
     this.qcTypes = qcTypes;
     }*/
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
+    
     
    
    
