@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author sharath nair <sharath.nair@polarcus.com>
  */
 @Entity
-@Table(name="sequencetest",schema="public")
+@Table(name="sequence",schema="public")
 public class Sequence {
 @Id
 @GeneratedValue

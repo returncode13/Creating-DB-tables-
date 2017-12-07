@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Header in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -29,7 +29,7 @@ public class Logs implements Serializable{
     
     @ManyToOne
     @JoinColumn(name="headers_fk",nullable = true)
-    private Headers headers;
+    private Header header;
     
     @ManyToOne
     @JoinColumn(name="volume_headers_fk",nullable = false)
@@ -167,12 +167,12 @@ public class Logs implements Serializable{
         this.timestamp = timestamp;
     }
 
-    public Headers getHeaders() {
-        return headers;
+    public Header getHeader() {
+        return header;
     }
 
-    public void setHeaders(Headers headers) {
-        this.headers = headers;
+    public void setHeader(Header header) {
+        this.header = header;
     }
 
     public Boolean getCompletedsuccessfully() {

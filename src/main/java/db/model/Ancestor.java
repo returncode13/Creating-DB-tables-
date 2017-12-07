@@ -33,8 +33,9 @@ public class Ancestor implements Serializable{
     @JoinColumn(name ="job_fk")       
     private Job job;
     
-    @Column(name="ancestor")
-    private Long ancestor;  
+    @ManyToOne
+    @JoinColumn(name="ancestor")
+    private Job ancestor;  
 
     @Override
     public int hashCode() {
@@ -83,15 +84,16 @@ public class Ancestor implements Serializable{
         return id;
     }
 
-    public Long getAncestor() {
+    public Job getAncestor() {
         return ancestor;
     }
 
-    public void setAncestor(Long ancestor) {
+    public void setAncestor(Job ancestor) {
         this.ancestor = ancestor;
-        System.out.println("Ancs: AncestorValue: "+ancestor);
     }
 
+    
+    
     public Job getJob() {
         return job;
     }

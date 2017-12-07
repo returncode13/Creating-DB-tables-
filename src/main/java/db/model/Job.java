@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Header in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -66,14 +66,22 @@ public class Job implements Serializable{
     private Set<JobVolumeMap> jobVolumeMap;
     
     @OneToMany(mappedBy = "job")
-    private Set<Ancestor> ancestors;
+    private Set<Ancestor> currentJobInAncestor;                         //The ancestor table is of the form  Job(currentjob)-->Job(ancestor)
+    
+    @OneToMany(mappedBy = "ancestor")
+    private Set<Ancestor> ancestors;                    
     
     @OneToMany(mappedBy ="job")
+    private Set<Descendant> currentJobInDescendant;
+    
+    @OneToMany(mappedBy ="descendant")
     private Set<Descendant> descendants;
     
     @OneToMany(mappedBy = "job")
     private Set<QcMatrix> qcmatrices;
     
+    @OneToMany(mappedBy = "job")
+    private Set<Header> headers;
     
     @OneToMany(mappedBy = "parent")
     private Set<Link> linksWithJobAsParent;                 //links where this job is parent...So all the children of this parent job are on the opposite end of the links
@@ -201,20 +209,20 @@ public class Job implements Serializable{
         this.nodetype = nodetype;
     }
 
-    public Set<Ancestor> getAncestors() {
-        return ancestors;
+    public Set<Ancestor> getCurrentJobInAncestor() {
+        return currentJobInAncestor;
     }
 
-    public void setAncestors(Set<Ancestor> ancestors) {
-        this.ancestors = ancestors;
+    public void setCurrentJobInAncestor(Set<Ancestor> currentJobInAncestor) {
+        this.currentJobInAncestor = currentJobInAncestor;
     }
 
-    public Set<Descendant> getDescendants() {
-        return descendants;
+    public Set<Descendant> getCurrentJobInDescendant() {
+        return currentJobInDescendant;
     }
 
-    public void setDescendants(Set<Descendant> descendants) {
-        this.descendants = descendants;
+    public void setCurrentJobInDescendant(Set<Descendant> currentJobInDescendant) {
+        this.currentJobInDescendant = currentJobInDescendant;
     }
 
     public Set<QcMatrix> getQcmatrices() {
@@ -240,6 +248,33 @@ public class Job implements Serializable{
     public void setLinksWithJobAsChild(Set<Link> linksWithJobAsChild) {
         this.linksWithJobAsChild = linksWithJobAsChild;
     }
+
+    public Set<Header> getHeaders() {
+        return headers;
+    }
+
+    public void setHeaders(Set<Header> headers) {
+        this.headers = headers;
+    }
+
+    public Set<Ancestor> getAncestors() {
+        return ancestors;
+    }
+
+    public void setAncestors(Set<Ancestor> ancestors) {
+        this.ancestors = ancestors;
+    }
+
+    public Set<Descendant> getDescendants() {
+        return descendants;
+    }
+
+    public void setDescendants(Set<Descendant> descendants) {
+        this.descendants = descendants;
+    }
+    
+    
+    
     
     
    

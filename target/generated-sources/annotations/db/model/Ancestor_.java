@@ -8,7 +8,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Ancestor.class)
 public abstract class Ancestor_ {
 
-	public static volatile SingularAttribute<Ancestor, Long> ancestor;
+	public static volatile SingularAttribute<Ancestor, Job> ancestor;
 	public static volatile SingularAttribute<Ancestor, Long> id;
 	public static volatile SingularAttribute<Ancestor, Job> job;
 

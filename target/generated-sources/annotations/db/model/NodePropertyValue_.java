@@ -9,8 +9,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class NodePropertyValue_ {
 
 	public static volatile SingularAttribute<NodePropertyValue, NodeProperty> nodeProperty;
-	public static volatile SingularAttribute<NodePropertyValue, Job> jobStep;
 	public static volatile SingularAttribute<NodePropertyValue, Long> idNodePropertyValue;
+	public static volatile SingularAttribute<NodePropertyValue, Job> job;
 	public static volatile SingularAttribute<NodePropertyValue, String> value;
 
 }

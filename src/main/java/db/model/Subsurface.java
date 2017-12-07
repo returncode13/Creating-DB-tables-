@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Header in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -23,7 +23,7 @@ import javax.persistence.Table;
  * @author sharath nair <sharath.nair@polarcus.com>
  */
 @Entity
-@Table(name="subsurfacetest",schema="public")
+@Table(name="subsurface",schema="public")
 
 public class Subsurface implements Serializable {
     @Id
@@ -37,16 +37,23 @@ public class Subsurface implements Serializable {
     @JoinColumn(name="seq_fk")
     private Sequence sequence;
     
-    @OneToMany(mappedBy = "subsurface")
+    @OneToMany(mappedBy = "subsurfaceFK")
     private Set<Acquisition> acquisition;
     
-    @OneToMany(mappedBy = "subsurface")
-    private Set<Headers> headers;
     
-    @OneToMany(mappedBy = "subsurface")
+    
+    /***
+     * These mappings are not present in the Database public.Subsurface.
+     * 
+     */
+    
+    @OneToMany(mappedBy = "subsurfaceFK")
+    private Set<Header> headers;
+    
+    @OneToMany(mappedBy = "subsurfaceFK")
     private Set<QcTable> qctables;
     
-    @OneToMany(mappedBy = "subsurface")
+    @OneToMany(mappedBy = "subsurfaceFK")
     private Set<Doubt> doubts;
     
     
@@ -69,11 +76,11 @@ public class Subsurface implements Serializable {
         this.acquisition = acquisition;
     }
 
-    public Set<Headers> getHeaders() {
+    public Set<Header> getHeaders() {
         return headers;
     }
 
-    public void setHeaders(Set<Headers> headers) {
+    public void setHeaders(Set<Header> headers) {
         this.headers = headers;
     }
 

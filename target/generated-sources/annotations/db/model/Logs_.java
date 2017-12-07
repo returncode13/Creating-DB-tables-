@@ -8,7 +8,6 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Logs.class)
 public abstract class Logs_ {
 
-	public static volatile SingularAttribute<Logs, Headers> headers;
 	public static volatile SingularAttribute<Logs, String> logpath;
 	public static volatile SingularAttribute<Logs, Workflow> workflow;
 	public static volatile SingularAttribute<Logs, String> updateTime;
@@ -19,6 +18,7 @@ public abstract class Logs_ {
 	public static volatile SingularAttribute<Logs, String> subsurfaces;
 	public static volatile SingularAttribute<Logs, String> summaryTime;
 	public static volatile SingularAttribute<Logs, Long> idLogs;
+	public static volatile SingularAttribute<Logs, Header> header;
 	public static volatile SingularAttribute<Logs, Boolean> cancelled;
 	public static volatile SingularAttribute<Logs, Boolean> completedsuccessfully;
 	public static volatile SingularAttribute<Logs, String> timestamp;

@@ -9,7 +9,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class Descendant_ {
 
 	public static volatile SingularAttribute<Descendant, Long> id;
-	public static volatile SingularAttribute<Descendant, Long> descendant;
+	public static volatile SingularAttribute<Descendant, Job> descendant;
 	public static volatile SingularAttribute<Descendant, Job> job;
 
 }

@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Header in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -26,8 +26,8 @@ import org.hibernate.annotations.Columns;
  * @author sharath nair
  */
 @Entity
-@Table(name="Headers",schema = "obpmanager")
-public class Headers implements Serializable{
+@Table(name="Header",schema = "obpmanager")
+public class Header implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,9 +36,13 @@ public class Headers implements Serializable{
     @JoinColumn(name="volume_fk",nullable = false)
     private Volume volume;
     
+    @ManyToOne
+    @JoinColumn(name="job_fk",nullable = false)
+    private Job job;
     
     
-    @OneToMany(mappedBy = "headers",cascade = CascadeType.ALL,orphanRemoval = true)
+    
+    @OneToMany(mappedBy = "header",cascade = CascadeType.ALL,orphanRemoval = true)
     private Set<Logs> logs;
     
     /*@OneToMany(mappedBy = "headers",cascade = CascadeType.ALL,orphanRemoval = true)
@@ -54,7 +58,7 @@ public class Headers implements Serializable{
     
     @ManyToOne
     @JoinColumn(name="subsurface_fk",nullable = false)
-    private Subsurface subsurface;
+    private Subsurface subsurfaceFK;
     
     
     @Column(name= "TimeStamp ")
@@ -125,7 +129,7 @@ public class Headers implements Serializable{
     private Boolean deleted=false; 
     
     @Column(name="NumberOfRuns")
-    private Long numberOfRuns=0L;                                               //number of times the subsurface was run
+    private Long numberOfRuns=0L;                                               //number of times the subsurfaceFK was run
     
         
     @Column(name="InsightVersion")
@@ -144,18 +148,18 @@ public class Headers implements Serializable{
     @Column(name="textfilename")                                             //used for txt file types. job steptype=4
     private String textfilepath;         
     
-    public Headers() {
+    public Header() {
       
     }
 
     
     
 
-    /*public Headers(Long id, Volume volume, Long sequence, String subsurface, String timeStamp, Long traceCount, Long inlineMax, Long inlineMin, Long inlineInc, Long xlineMax, Long xlineMin, Long xlineInc, Long dugShotMax, Long dugShotMin, Long dugShotInc, Long dugChannelMax, Long dugChannelMin, Long dugChannelInc, Long offsetMax, Long offsetMin, Long offsetInc, Long cmpMax, Long cmpMin, Long cmpInc,Boolean modified,Boolean deleted,Long version) {
+    /*public Header(Long id, Volume volume, Long sequence, String subsurfaceFK, String timeStamp, Long traceCount, Long inlineMax, Long inlineMin, Long inlineInc, Long xlineMax, Long xlineMin, Long xlineInc, Long dugShotMax, Long dugShotMin, Long dugShotInc, Long dugChannelMax, Long dugChannelMin, Long dugChannelInc, Long offsetMax, Long offsetMin, Long offsetInc, Long cmpMax, Long cmpMin, Long cmpInc,Boolean modified,Boolean deleted,Long version) {
     this.id = id;
     this.volume = volume;
     this.sequence = sequence;
-    this.subsurface = subsurface;
+    this.subsurfaceFK = subsurfaceFK;
     this.timeStamp = timeStamp;
     this.traceCount = traceCount;
     this.inlineMax = inlineMax;
@@ -187,7 +191,7 @@ public class Headers implements Serializable{
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.volume);
-        hash = 97 * hash + Objects.hashCode(this.subsurface);
+        hash = 97 * hash + Objects.hashCode(this.subsurfaceFK);
         hash = 97 * hash + Objects.hashCode(this.traceCount);
         hash = 97 * hash + Objects.hashCode(this.inlineMax);
         hash = 97 * hash + Objects.hashCode(this.inlineMin);
@@ -223,7 +227,7 @@ public class Headers implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Headers other = (Headers) obj;
+        final Header other = (Header) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -231,7 +235,7 @@ public class Headers implements Serializable{
             return false;
         }
         
-        if (!Objects.equals(this.subsurface, other.subsurface)) {
+        if (!Objects.equals(this.subsurfaceFK, other.subsurfaceFK)) {
             return false;
         }
         if (!Objects.equals(this.timeStamp, other.timeStamp)) {
@@ -344,21 +348,21 @@ public class Headers implements Serializable{
     }
     
     public String getSubsurface() {
-    return subsurface;
+    return subsurfaceFK;
     }
     
-    public void setSubsurface(String subsurface) {
-    this.subsurface = subsurface;
+    public void setSubsurface(String subsurfaceFK) {
+    this.subsurfaceFK = subsurfaceFK;
     }*/
 
     
 
-    public Subsurface getSubsurface() {
-        return subsurface;
+    public Subsurface getSubsurfaceFK() {
+        return subsurfaceFK;
     }
 
-    public void setSubsurface(Subsurface subsurface) {
-        this.subsurface = subsurface;
+    public void setSubsurfaceFK(Subsurface subsurfaceFK) {
+        this.subsurfaceFK = subsurfaceFK;
     }
     
     
@@ -585,6 +589,23 @@ public class Headers implements Serializable{
     public void setTextfilepath(String textfilepath) {
         this.textfilepath = textfilepath;
     }
+
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public Set<Logs> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(Set<Logs> logs) {
+        this.logs = logs;
+    }
+    
     
     
    

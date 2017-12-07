@@ -34,17 +34,19 @@ public class Descendant implements Serializable{
     private Job job;
     
     
-     @Column(name="descendant")
-     private Long descendant;
+    @ManyToOne
+    @JoinColumn(name="descendant")
+    private Job descendant;  
 
-    public Long getDescendant() {
+    public Job getDescendant() {
         return descendant;
     }
 
-    public void setDescendant(Long descendant) {
+    public void setDescendant(Job descendant) {
         this.descendant = descendant;
     }
-     
+    
+
      
     
     public Descendant() {

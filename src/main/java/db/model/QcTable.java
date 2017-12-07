@@ -36,7 +36,7 @@ public class QcTable implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="subsurface_fk",nullable=false)
-    private Subsurface subsurface;
+    private Subsurface subsurfaceFK;
     
     
     @ManyToOne
@@ -132,12 +132,12 @@ public class QcTable implements Serializable {
     this.headers = headers;
     }*/
 
-    public Subsurface getSubsurface() {
-        return subsurface;
+    public Subsurface getSubsurfaceFK() {
+        return subsurfaceFK;
     }
 
-    public void setSubsurface(Subsurface subsurface) {
-        this.subsurface = subsurface;
+    public void setSubsurfaceFK(Subsurface subsurfaceFK) {
+        this.subsurfaceFK = subsurfaceFK;
     }
 
     public User getUser() {

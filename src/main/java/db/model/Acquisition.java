@@ -22,7 +22,7 @@ import javax.persistence.UniqueConstraint;
  */
 
 @Entity
-@Table(name="acquisitiontest",schema = "public")
+@Table(name="acquisition",schema = "public")
 public class Acquisition implements Serializable{
 
     @Id
@@ -35,7 +35,7 @@ public class Acquisition implements Serializable{
     
     @ManyToOne
     @JoinColumn(name="sub_fk",nullable=false)
-    private Subsurface subsurface;
+    private Subsurface subsurfaceFK;
    
     @Column(name="cable")
     private Long cable;
@@ -87,12 +87,12 @@ public class Acquisition implements Serializable{
         this.sequence = sequence;
     }
 
-    public Subsurface getSubsurface() {
-        return subsurface;
+    public Subsurface getSubsurfaceFK() {
+        return subsurfaceFK;
     }
 
-    public void setSubsurface(Subsurface subsurface) {
-        this.subsurface = subsurface;
+    public void setSubsurfaceFK(Subsurface subsurfaceFK) {
+        this.subsurfaceFK = subsurfaceFK;
     }
 
     public Long getCable() {

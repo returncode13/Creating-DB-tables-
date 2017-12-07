@@ -30,8 +30,8 @@ public class NodePropertyValue implements Serializable {
     private Long idNodePropertyValue;
     
     @ManyToOne()
-    @JoinColumn(name="jobstep_fk",nullable=false)
-    private Job jobStep;
+    @JoinColumn(name="job_fk",nullable=false)
+    private Job job;
     
     
     @ManyToOne()
@@ -54,12 +54,12 @@ public class NodePropertyValue implements Serializable {
     
     
     
-    public Job getJobStep() {
-        return jobStep;
+    public Job getJob() {
+        return job;
     }
 
-    public void setJobStep(Job jobStep) {
-        this.jobStep = jobStep;
+    public void setJob(Job job) {
+        this.job = job;
     }
 
     public NodeProperty getNodeProperty() {
