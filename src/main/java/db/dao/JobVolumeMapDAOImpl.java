@@ -99,7 +99,7 @@ public class JobVolumeMapDAOImpl implements JobVolumeMapDAO{
         
         for (Iterator<JobVolumeMap> iterator = result.iterator(); iterator.hasNext();) {
             JobVolumeMap jvd = iterator.next();
-            jobStepList.add(jvd.getJob());
+//            jobStepList.add(jvd.getJob());
         }
         
         return jobStepList;
@@ -125,7 +125,7 @@ public class JobVolumeMapDAOImpl implements JobVolumeMapDAO{
         
         for (Iterator<JobVolumeMap> iterator = result.iterator(); iterator.hasNext();) {
             JobVolumeMap jvd = iterator.next();
-            volumeList.add(jvd.getVolume());
+//            volumeList.add(jvd.getVolume());
         }
         
         return volumeList;

@@ -7,14 +7,18 @@ package db.model;
 
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -32,15 +36,14 @@ import javax.persistence.UniqueConstraint;
 public class Job implements Serializable{
     
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
-    
-    @Column(name = "id",nullable = false,unique = true,length = 10)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "job_id",nullable = false,unique = true,length = 10)
     private Long id;
     
     @Column(name = "name",nullable = true,length = 256)
     private String nameJobStep;
     
-    @Column(name = "insightVersionsUsed",nullable=false,length=2048)
+    @Column(name = "insightVersionsUsed",nullable=true,length=2048)
     private String insightVersions;
     
     
@@ -60,35 +63,50 @@ public class Job implements Serializable{
     @JoinColumn(name="workspace_fk",nullable=false)
     private Workspace workspace;
     
+    
+    
     /*@Column(name = "pending",nullable = true)
     private Boolean pending;*/
-    @OneToMany(mappedBy = "job")                              //create a member named "job" in the JobVolumeMap class definition
-    private Set<JobVolumeMap> jobVolumeMap;
+    /* @OneToMany(mappedBy = "job")                              //create a member named "job" in the JobVolumeMap class definition
+    private Set<JobVolumeMap> jobVolumeMap;*/
     
-    @OneToMany(mappedBy = "job")
+     @OneToMany(mappedBy = "job",fetch=FetchType.EAGER)                             //create a member named "job" in the JobVolumeMap class definition
+    private Set<Volume> volumes;
+    
+    
+    @OneToMany(mappedBy = "job",fetch=FetchType.EAGER)
     private Set<Ancestor> currentJobInAncestor;                         //The ancestor table is of the form  Job(currentjob)-->Job(ancestor)
     
-    @OneToMany(mappedBy = "ancestor")
+    @OneToMany(mappedBy = "ancestor",fetch=FetchType.EAGER)
     private Set<Ancestor> ancestors;                    
     
-    @OneToMany(mappedBy ="job")
+    @OneToMany(mappedBy ="job",fetch=FetchType.EAGER)
     private Set<Descendant> currentJobInDescendant;
     
-    @OneToMany(mappedBy ="descendant")
+    @OneToMany(mappedBy ="descendant",fetch=FetchType.EAGER)
     private Set<Descendant> descendants;
     
-    @OneToMany(mappedBy = "job")
-    private Set<QcMatrix> qcmatrices;
+    @OneToMany(mappedBy = "job",fetch=FetchType.EAGER)
+    private Set<QcMatrixRow> qcmatrix;
     
-    @OneToMany(mappedBy = "job")
+    @OneToMany(mappedBy = "job",fetch=FetchType.EAGER)
+    private Set<Log> logs;
+    
+    
+    @OneToMany(mappedBy = "job",fetch=FetchType.EAGER)
     private Set<Header> headers;
     
-    @OneToMany(mappedBy = "parent")
+    @OneToMany(mappedBy = "parent",fetch=FetchType.EAGER)
     private Set<Link> linksWithJobAsParent;                 //links where this job is parent...So all the children of this parent job are on the opposite end of the links
     
-    @OneToMany(mappedBy = "child")
+    @OneToMany(mappedBy = "child",fetch=FetchType.EAGER)
     private Set<Link> linksWithJobAsChild;                  //links where this job is child. So all the parents of this job are on the opposite end of the link
     
+    
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="subsurface_job",schema = "obpmanager",joinColumns ={ @JoinColumn(name="job_id")},inverseJoinColumns ={ @JoinColumn(name="id")})    //unidirectional Many-to-Many relationship . 1 job->several subs. 
+    private Set<Subsurface> subsurfaces;
      
     /*public Job(String nameJobStep, Boolean alert,String insightVersion,Long type) {
     this.nameJobStep = nameJobStep;
@@ -116,13 +134,15 @@ public class Job implements Serializable{
   
     
     
+    
+ 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    /*public void setId(Long id) {
     this.id = id;
-    }
+    }*/
     
     public String getNameJobStep() {
         return nameJobStep;
@@ -140,24 +160,23 @@ public class Job implements Serializable{
         this.alert = alert;
     }
 
-    public Set<JobVolumeMap> getJobVolumeMap() {
-        return jobVolumeMap;
+    /*public Set<JobVolumeMap> getJobVolumeMap() {
+    return jobVolumeMap;
     }
-
+    
     public void setJobVolumeMap(Set<JobVolumeMap> jobVolumeMap) {
-        
-        if(jobVolumeMap!=null)
-        {
-        this.jobVolumeMap.clear();
-        
-        for (Iterator<JobVolumeMap> iterator = jobVolumeMap.iterator(); iterator.hasNext();) {
-            JobVolumeMap next = iterator.next();
-            this.jobVolumeMap.add(next);
-        }
-        }
-        //this.jobVolumeMap = jobVolumeMap;
+    
+    if(jobVolumeMap!=null)
+    {
+    this.jobVolumeMap.clear();
+    
+    for (Iterator<JobVolumeMap> iterator = jobVolumeMap.iterator(); iterator.hasNext();) {
+    JobVolumeMap next = iterator.next();
+    this.jobVolumeMap.add(next);
     }
-
+    }
+    //this.jobVolumeMap = jobVolumeMap;
+    }*/
    
 
     public String getInsightVersions() {
@@ -225,12 +244,12 @@ public class Job implements Serializable{
         this.currentJobInDescendant = currentJobInDescendant;
     }
 
-    public Set<QcMatrix> getQcmatrices() {
-        return qcmatrices;
+    public Set<QcMatrixRow> getQcmatrix() {
+        return qcmatrix;
     }
 
-    public void setQcmatrices(Set<QcMatrix> qcmatrices) {
-        this.qcmatrices = qcmatrices;
+    public void setQcmatrix(Set<QcMatrixRow> qcmatrix) {
+        this.qcmatrix = qcmatrix;
     }
 
     public Set<Link> getLinksWithJobAsParent() {
@@ -272,6 +291,59 @@ public class Job implements Serializable{
     public void setDescendants(Set<Descendant> descendants) {
         this.descendants = descendants;
     }
+
+    public Set<Volume> getVolumes() {
+        return volumes;
+    }
+
+    public void setVolumes(Set<Volume> volumes) {
+        this.volumes = volumes;
+    }
+
+    public Set<Log> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(Set<Log> logs) {
+        this.logs = logs;
+    }
+
+    
+    public Set<Subsurface> getSubsurfaces() {
+        return subsurfaces;
+    }
+
+    public void setSubsurfaces(Set<Subsurface> subsurfaces) {
+        this.subsurfaces = subsurfaces;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Job other = (Job) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+    
+   
     
     
     

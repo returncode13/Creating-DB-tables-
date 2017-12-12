@@ -25,23 +25,22 @@ public class JobVolumeMap implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @ManyToOne
+    /* @ManyToOne
     @JoinColumn(name= "job_fk",nullable = false)
     private Job job;
     
     @ManyToOne
     @JoinColumn(name = "volume_fk",nullable = false)
-    private Volume volume;
-
+    private Volume volume;*/
     public JobVolumeMap() {
     }
 
-    public JobVolumeMap(Job jobStep, Volume volume) {
-        this.job = jobStep;
-        this.volume = volume;
+    /* public JobVolumeMap(Job jobStep, Volume volume) {
+    this.job = jobStep;
+    this.volume = volume;
     }
     
-    
+    */
     
 
     public Long getId() {
@@ -52,23 +51,23 @@ public class JobVolumeMap implements Serializable{
         this.id = id;
     }
 
-    public Job getJob() {
-        return job;
+    /*public Job getJob() {
+    return job;
     }
-
-    public void setJob(Job job) {
-        this.job = job;
-    }
-
-    public Volume getVolume() {
-        return volume;
-    }
-
-    public void setVolume(Volume volume) {
-        this.volume = volume;
-    }
-
     
+    public void setJob(Job job) {
+    this.job = job;
+    }
+    
+    public Volume getVolume() {
+    return volume;
+    }
+    
+    public void setVolume(Volume volume) {
+    this.volume = volume;
+    }
+    
+    */
     
     
     

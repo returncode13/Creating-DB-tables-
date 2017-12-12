@@ -189,7 +189,7 @@ public class HeaderDAOImpl implements HeaderDAO{
         if(result.size()>0){
             for (Iterator<Header> iterator = result.iterator(); iterator.hasNext();) {
                 Header hdr = iterator.next();
-                subsurfacesThatNeedToBeSummarized.add(hdr.getSubsurfaceFK());
+                subsurfacesThatNeedToBeSummarized.add(hdr.getSubsurface());
                 
             }
             return subsurfacesThatNeedToBeSummarized;

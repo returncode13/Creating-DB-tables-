@@ -29,9 +29,9 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "Volume",schema = "obpmanager",uniqueConstraints = {@UniqueConstraint(columnNames = {"idVolume"})})
 public class Volume implements Serializable {
    @Id
-   //@GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "idVolume")
-   private long idVolume;
+   private long id;
    
    @Column(name = "nameVolume",length = 255)
    private String nameVolume;
@@ -54,13 +54,17 @@ public class Volume implements Serializable {
 
     
    
-   /*
+  
    @OneToMany(mappedBy = "volume",cascade = CascadeType.ALL,orphanRemoval = true)
-   private Set<Headers> headers;
-   */
+   private Set<Header> headers;
    
-   @OneToMany(mappedBy="volume")
-   private Set<JobVolumeMap> jobVolumeDetails;
+   
+    @ManyToOne
+    @JoinColumn(name= "job_fk",nullable = false)
+    private Job job;
+   
+    /* @OneToMany(mappedBy="volume")
+    private Set<JobVolumeMap> jobVolumeDetails;*/
    /*
    @OneToMany(mappedBy = "volume",cascade = CascadeType.ALL,orphanRemoval = true)
    private Set<Logs> logs;
@@ -86,7 +90,7 @@ public class Volume implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 73 * hash + (int) (this.idVolume ^ (this.idVolume >>> 32));
+        hash = 73 * hash + (int) (this.id ^ (this.id >>> 32));
         hash = 73 * hash + Objects.hashCode(this.nameVolume);
         hash = 73 * hash + Objects.hashCode(this.pathOfVolume);
         hash = 73 * hash + Objects.hashCode(this.md5Hash);
@@ -111,7 +115,7 @@ public class Volume implements Serializable {
             return false;
         }
         final Volume other = (Volume) obj;
-        if (this.idVolume != other.idVolume) {
+        if (this.id != other.id) {
             return false;
         }
         if (!Objects.equals(this.nameVolume, other.nameVolume)) {
@@ -148,15 +152,15 @@ public class Volume implements Serializable {
     
     
     
-    public long getIdVolume() {
-        return idVolume;
+    public long getId() {
+        return id;
     }
 
-    public void setIdVolume(long idVolume) {
-        this.idVolume = idVolume;
+    /* public void setId(long id) {
+    this.id = id;
     }
     
-    
+    */
     public Boolean getAlert() {
         return alert;
     }
@@ -189,14 +193,13 @@ public class Volume implements Serializable {
     public void setHeaders(Set<Headers> headers) {
     this.headers = headers;
     }*/
-    public Set<JobVolumeMap> getJobVolumeDetails() {
-        return jobVolumeDetails;
+    /* public Set<JobVolumeMap> getJobVolumeDetails() {
+    return jobVolumeDetails;
     }
-
+    
     public void setJobVolumeDetails(Set<JobVolumeMap> jobVolumeDetails) {
-        this.jobVolumeDetails = jobVolumeDetails;
-    }
-
+    this.jobVolumeDetails = jobVolumeDetails;
+    }*/
     public void startAlert() {
         this.setAlert(Boolean.TRUE);
     }
@@ -243,6 +246,22 @@ public class Volume implements Serializable {
     public void setWorkflows(Set<Workflow> workflows) {
     this.workflows = workflows;
     }*/
+
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
+    }
+
+    public Set<Header> getHeaders() {
+        return headers;
+    }
+
+    public void setHeaders(Set<Header> headers) {
+        this.headers = headers;
+    }
 
     
     

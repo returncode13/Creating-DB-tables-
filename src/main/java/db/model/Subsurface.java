@@ -6,6 +6,7 @@
 package db.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,7 +28,7 @@ import javax.persistence.Table;
 
 public class Subsurface implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column(name="subsurface")
@@ -47,14 +48,20 @@ public class Subsurface implements Serializable {
      * 
      */
     
-    @OneToMany(mappedBy = "subsurfaceFK")
+    
+    
+    
+    @OneToMany(mappedBy = "subsurface")
     private Set<Header> headers;
     
-    @OneToMany(mappedBy = "subsurfaceFK")
+    @OneToMany(mappedBy = "subsurface")
     private Set<QcTable> qctables;
     
-    @OneToMany(mappedBy = "subsurfaceFK")
+    @OneToMany(mappedBy = "subsurface")
     private Set<Doubt> doubts;
+    
+    @OneToMany(mappedBy = "subsurface")
+    private Set<Log> logs ;
     
     
     public Subsurface() {
@@ -115,6 +122,46 @@ public class Subsurface implements Serializable {
     public void setQctables(Set<QcTable> qctables) {
         this.qctables = qctables;
     }
+
+    public Set<Log> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(Set<Log> logs) {
+        this.logs = logs;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.id);
+        hash = 71 * hash + Objects.hashCode(this.subsurface);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Subsurface other = (Subsurface) obj;
+        if (!Objects.equals(this.subsurface, other.subsurface)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+   
     
     
     

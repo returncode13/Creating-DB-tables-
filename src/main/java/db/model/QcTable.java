@@ -28,7 +28,7 @@ public class QcTable implements Serializable {
    
     @ManyToOne
     @JoinColumn(name="qcmatrix_fk",nullable=false)
-    private QcMatrix qcmatrix;
+    private QcMatrixRow qcMatrixRow;
     
     /*@ManyToOne
     @JoinColumn(name="headers_fk",nullable=false)
@@ -36,7 +36,7 @@ public class QcTable implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="subsurface_fk",nullable=false)
-    private Subsurface subsurfaceFK;
+    private Subsurface subsurface;
     
     
     @ManyToOne
@@ -112,12 +112,12 @@ public class QcTable implements Serializable {
     }
 
    
-    public QcMatrix getQcmatrix() {
-        return qcmatrix;
+    public QcMatrixRow getQcMatrixRow() {
+        return qcMatrixRow;
     }
 
-    public void setQcmatrix(QcMatrix qcmatrix) {
-        this.qcmatrix = qcmatrix;
+    public void setQcMatrixRow(QcMatrixRow qcMatrixRow) {
+        this.qcMatrixRow = qcMatrixRow;
     }
 
     public Long getId() {
@@ -132,12 +132,12 @@ public class QcTable implements Serializable {
     this.headers = headers;
     }*/
 
-    public Subsurface getSubsurfaceFK() {
-        return subsurfaceFK;
+    public Subsurface getSubsurface() {
+        return subsurface;
     }
 
-    public void setSubsurfaceFK(Subsurface subsurfaceFK) {
-        this.subsurfaceFK = subsurfaceFK;
+    public void setSubsurface(Subsurface subsurface) {
+        this.subsurface = subsurface;
     }
 
     public User getUser() {
