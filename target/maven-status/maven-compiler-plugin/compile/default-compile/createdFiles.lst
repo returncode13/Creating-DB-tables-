@@ -52,6 +52,7 @@ db/services/SubsurfaceService.class
 db/services/AncestorService.class
 db/dao/WorkflowDAOImpl.class
 db/dao/DescendantDAO.class
+db/model/VariableArgument_.class
 db/model/Descendant_.class
 db/model/Ancestor.class
 db/services/LogsService.class
@@ -100,6 +101,7 @@ app/settings/database/DataBaseSettingsNode.class
 db/dao/SequenceDAO.class
 db/model/Doubt.class
 db/model/Doubt_.class
+db/model/VariableArgument.class
 db/model/Link.class
 db/dao/WorkflowDAO.class
 db/services/NodePropertyValueService.class
@@ -132,6 +134,7 @@ db/services/DoubtTypeService.class
 db/dao/QcMatrixRowDAOImpl.class
 db/services/AncestorServiceImpl.class
 db/services/UserServiceImpl.class
+db/model/DoubtStatus.class
 db/services/LinkService.class
 db/model/QcTable.class
 db/dao/NodePropertyValueDAOImpl.class
@@ -153,6 +156,7 @@ db/dao/AcquisitionDAO.class
 db/services/NodePropertyValueServiceImpl.class
 db/services/DoubtTypeServiceImpl.class
 db/services/HeaderServiceImpl.class
+db/model/DoubtStatus_.class
 db/model/QcTable_.class
 db/model/Sequence.class
 db/dao/DoubtTypeDAO.class

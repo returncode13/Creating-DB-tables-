@@ -40,8 +40,7 @@ public class Link {
     private Dot dot;
     
     
-    @OneToMany(mappedBy = "link")
-    private Set<Doubt> doubts;                  //all doubts associated with this link
+  
     
     public Link() {
     }
@@ -67,13 +66,7 @@ public class Link {
         this.child = child;
     }
 
-    public Set<Doubt> getDoubts() {
-        return doubts;
-    }
-
-    public void setDoubts(Set<Doubt> doubts) {
-        this.doubts = doubts;
-    }
+  
 
     public Dot getDot() {
         return dot;

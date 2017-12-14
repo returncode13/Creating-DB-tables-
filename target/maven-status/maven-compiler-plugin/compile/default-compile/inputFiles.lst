@@ -37,6 +37,7 @@
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/AncestorDAOImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/AcquisitionDAOImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/JobDAO.java
+/d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/model/DoubtStatus.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/SequenceServiceImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/LinkService.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/LogsService.java
@@ -49,6 +50,7 @@
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/LinkDAOImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/DescendantDAO.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/DoubtServiceImpl.java
+/d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/model/VariableArgument.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/PropertyTypeServiceImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/DescendantDAOImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/model/Volume.java

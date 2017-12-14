@@ -72,7 +72,7 @@ public class LinkDAOImpl implements LinkDAO{
              l.setChild(newLink.getChild());
              l.setParent(newLink.getParent());
              l.setDot(newLink.getDot());
-             l.setDoubts(newLink.getDoubts());
+//             l.setDoubts(newLink.getDoubts());
              
             session.update(l);
             

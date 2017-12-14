@@ -134,7 +134,9 @@ public class Workspace implements Serializable{
     }
     
     
-    
+    public void addToDots(Dot dbDot) {
+        this.dots.add(dbDot);
+    }
    
    
    
