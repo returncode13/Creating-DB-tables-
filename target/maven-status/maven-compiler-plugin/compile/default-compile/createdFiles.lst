@@ -10,6 +10,7 @@ db/services/QcTypeService.class
 db/services/NodeTypeService.class
 db/services/PropertyTypeService.class
 db/model/Item.class
+db/model/Summary_.class
 db/dao/QcMatrixRowDAO.class
 db/model/Volume_.class
 app/settings/database/DataBaseSettingsWrapper.class
@@ -64,6 +65,7 @@ db/services/SequenceService.class
 db/model/QcMatrixRow_.class
 db/dao/UserDAOImpl.class
 db/model/Log.class
+db/model/Summary.class
 db/dao/VolumeDAOImpl.class
 db/model/Header.class
 db/model/QcType_.class

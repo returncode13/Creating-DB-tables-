@@ -86,6 +86,7 @@
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/UserDAOImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/JobVolumeMapServiceImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/connections/ssh/SSHManager.java
+/d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/model/Summary.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/model/Ancestor.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/NodePropertyValueServiceImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/NodePropertyService.java
