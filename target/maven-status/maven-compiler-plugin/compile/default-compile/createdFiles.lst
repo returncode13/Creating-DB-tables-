@@ -43,6 +43,7 @@ db/dao/DescendantDAOImpl.class
 db/services/HeaderService.class
 db/model/Subsurface_.class
 db/dao/SubsurfaceDAO.class
+db/model/SubsurfaceJobId_.class
 db/model/NodePropertyValue_.class
 db/services/WorkflowService.class
 db/dao/NodePropertyValueDAO.class
@@ -57,6 +58,7 @@ db/model/VariableArgument_.class
 db/model/Descendant_.class
 db/model/Ancestor.class
 db/services/LogsService.class
+db/model/SubsurfaceJob_.class
 db/model/Ancestor_.class
 db/model/Workflow.class
 db/model/PropertyType.class
@@ -92,6 +94,7 @@ main/FXMLController.class
 db/dao/AncestorDAOImpl.class
 db/services/QcTypeServiceImpl.class
 db/dao/PropertyTypeDAO.class
+db/model/SubsurfaceJob.class
 db/dao/AncestorDAO.class
 main/MainApp.class
 app/settings/ssh/SShSettingsController.class
@@ -128,6 +131,7 @@ db/model/Volume.class
 db/model/DoubtType.class
 db/model/Acquisition_.class
 db/dao/LogsDAO.class
+db/model/SubsurfaceJobId.class
 db/dao/JobDAO.class
 db/dao/SubsurfaceDAOImpl.class
 db/services/JobService.class

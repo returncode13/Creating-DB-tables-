@@ -57,6 +57,7 @@
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/app/settings/database/DbListModel.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/main/FXMLController.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/UserServiceImpl.java
+/d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/model/SubsurfaceJob.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/NodePropertyServiceImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/QcTypeService.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/AncestorServiceImpl.java
@@ -92,6 +93,7 @@
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/NodePropertyService.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/services/QcTableServiceImpl.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/app/settings/database/DbListNode.java
+/d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/model/SubsurfaceJobId.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/model/QcTable.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/HeaderDAO.java
 /d/home/adira0150/NetBeansProjects/CreateDBtables-1/src/main/java/db/dao/NodePropertyValueDAO.java
